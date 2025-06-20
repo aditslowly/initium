@@ -31,6 +31,13 @@
 
 ---
 
+## 📦 Requirement macOS 13 or later
+Homebrew
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+---
+
 ## 📦 Instalasi
 
 ```bash
@@ -57,11 +64,3 @@ python initium/main.py
 python run.py
 
 ---
-
-## 📦 macOS requirement
-1. Homebrew
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-Min requirements for macOS 13
-
