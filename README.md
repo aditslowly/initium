@@ -39,7 +39,7 @@ cd initium
 
 
 ## 🛠 Setup Virtual Environment
-```bash
+
 python3 -m venv .venv
 source .venv/bin/activate     # macOS/Linux
 # .venv\Scripts\activate.bat  # Windows
@@ -49,9 +49,9 @@ pip install -r requirement.txt # Windows
 pip3 install -r requirement.txt # macOS/Linux
 
 ▶️ Menjalankan Program
+
 💡 Opsi 1: Manual
-```bash
 python initium/main.py
+
 💡 Opsi 2: Auto cross-platform (rekomendasi)
-```bash
 python run.py
