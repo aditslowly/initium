@@ -55,3 +55,13 @@ python initium/main.py
 
 💡 Opsi 2: Auto cross-platform (rekomendasi)
 python run.py
+
+---
+
+## 📦 macOS requirement
+1. Homebrew
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+Min requirements for macOS 13
+
