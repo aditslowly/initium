@@ -62,5 +62,16 @@ python initium/main.py
 
 💡 Opsi 2: Auto cross-platform (rekomendasi)
 python run.py
-
+```
 ---
+# Initium - Web Dev Setup CLI 🚀
+
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+
+Initium is a simple cross-platform CLI tool that helps you quickly install essential web development tools like Node.js, Git, Python, VSCode, XAMPP, and Laragon.
+
+...
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE.md).
