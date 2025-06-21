@@ -6,11 +6,18 @@ import platform
 
 console = Console()
 
+def show_logo():
+    figlet = Figlet(font='block')
+    ascii_logo = figlet.renderText('Initium')
+    console.print(Panel.fit(
+        f"[cyan]{ascii_logo}[/cyan]",
+        title="[bold green]INITIUM CLI INSTALLER",
+        subtitle="github.com/aditslowly/initium",
+        border_style="bright_blue"
+    ))
+
 def show_ui():
-    figlet = Figlet(font='slant')
-    header = figlet.renderText('INITIUM')
-    console.print(f"[bold cyan]{header}[/bold cyan]")
-    console.print(Panel.fit("INITIUM - Code Setup Installer", style="green"))
+    show_logo()
 
     # OS Identify
     os_name = platform.system()
@@ -33,6 +40,6 @@ def show_ui():
     for i, tool in enumerate(tools, 1):
         console.print(f"[bold blue]{i}.[/bold blue] {tool}")
     
-    choice = Prompt.ask("\n[bold yellow]Pilih tool yang ingin di install[/bold yellow]", default="0")
+    choice = Prompt.ask("\n[bold yellow]Pilih tools yang ingin diinstall[/bold yellow]", default="0")
 
     return os_type, choice
