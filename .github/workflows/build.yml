@@ -43,6 +43,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: dist/initium-installer.exe
-          tag_name: ${{github.ref_name}}
+          tag_name: ${{ github.event.release.tag_name || github.ref_name }}
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
