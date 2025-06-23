@@ -55,7 +55,7 @@ def winget_install(package_id, fallback_url=None):
         subprocess.run(
             [
                 "winget", "install",
-                "--id", {package_id}, "--source",
+                "--id", package_id, "--source",
                 "winget", "--silent", "--accept-package-agreements",
                 "--accept-source--aggrements", "-e"
             ],
