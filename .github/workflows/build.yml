@@ -26,6 +26,7 @@ jobs:
 
       - name: Get pyfiglet fonts path
         id: get-fonts
+        shell: pwsh
         run: |
           $fontPath = python -c "import os, pyfiglet; print(os.path.join(os.path.dirname(pyfiglet.__file__), 'fonts'))"
           echo "FONT_PATH=$fontPath" >> $env:GITHUB_ENV
@@ -33,6 +34,7 @@ jobs:
       - name: Build executable with PyInstaller
         run: |
           pyinstaller --onefile --name initium --add-data "$env:FONT_PATH;pyfiglet/fonts" run.py
+        shell: pwsh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
