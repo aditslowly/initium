@@ -32,7 +32,7 @@ jobs:
 
       - name: 🛠 Build executable with PyInstaller
         run: |
-          pyinstaller --onefile --name initium --add-data "${{ env.FONT_PATH }};pyfiglet/fonts" run.py
+              pyinstaller --onefile --name initium \ --add-data "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pyfiglet/fonts:pyfiglet/fonts" \ run.py
 
       - name: 📤 Upload to GitHub Releases
         uses: softprops/action-gh-release@v1
