@@ -1,5 +1,7 @@
 import subprocess
 import os
+import webbrowser
+import platform
 
 def handle_choice(choice, os_type):
     tools = {
@@ -62,10 +64,19 @@ def winget_install(package_id, fallback_url=None):
 
 # === FUNGSI PEMBANTU === 
 def open_url(url):
-    if os.name == "Windows":
-        os.system(f"start {url}")
-    else:
-        os.system(f"xdg-open {url}")
+    try:
+        system = platform.system()
+        if system == "Windows":
+            os.startfile(url)
+        elif system == "Darwin":
+            subprocess.run(["open", url])
+        elif system == "Linux":
+            subprocess.run(["xdg-open", url])
+        else:
+            webbrowser.open(url)
+    except Exception as e:
+        print(f"❌ Gagal membuka URL: {e}")
+
 
 # === INSTALLER FUNCTION ===
 def install_node(os_type):
