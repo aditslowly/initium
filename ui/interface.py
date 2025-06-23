@@ -19,7 +19,7 @@ def show_logo():
     ))
 
 def show_ui():
-    os.system("cls" if os.name == "Windows" else "clear")
+    os.system("cls" if os.name == "nt" else "clear")
     show_logo()
 
     # OS Identify

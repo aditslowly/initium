@@ -52,12 +52,17 @@ def is_winget_available():
 
 def winget_install(package_id, fallback_url=None):
     try:
-        result = subprocess.run(
-          ["winget", "install", "--id=", package_id, "--silent", "-e"],
-            check=True
-            )
+        subprocess.run(
+            [
+                "winget", "install",
+                "--id", {package_id}, "--source",
+                "winget", "--silent", "--accept-package-agreements",
+                "--accept-source--aggrements", "-e"
+            ],
+        check=True
+        )
     except subprocess.CalledProcessError:
-        print(f"⚠️ Winget gagal menemukan atau menginstall {package_id}.")
+        print(f"⚠️ Winget gagal menemukan atau menginstall {package_id}")
         if fallback_url:
             open_url(fallback_url)
 
