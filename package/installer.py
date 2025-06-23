@@ -57,7 +57,7 @@ def winget_install(package_id, fallback_url=None):
                 "winget", "install",
                 "--id", package_id, "--source",
                 "winget", "--silent", "--accept-package-agreements",
-                "--accept-source--aggrements", "-e"
+                "--accept-source-aggrements", "-e"
             ],
         check=True
         )
