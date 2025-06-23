@@ -1,14 +1,16 @@
 from rich.console import Console
 from rich.panel import Panel
+from rich.markup import escape
 from rich.prompt import Prompt 
 from pyfiglet import Figlet
 import platform
+import os
 
 console = Console()
 
 def show_logo():
-    figlet = Figlet(font='block')
-    ascii_logo = figlet.renderText('Initium')
+    figlet = Figlet(font='standard')
+    ascii_logo = escape(figlet.renderText('Initium'))
     console.print(Panel.fit(
         f"[cyan]{ascii_logo}[/cyan]",
         title="[bold green]INITIUM CLI INSTALLER",
@@ -17,6 +19,7 @@ def show_logo():
     ))
 
 def show_ui():
+    os.system("cls" if os.name == "Windows" else "clear")
     show_logo()
 
     # OS Identify
@@ -34,7 +37,8 @@ def show_ui():
     console.print(f"\n📦 [bold]Detected OS:[/bold] {os_type}\n", style="bold magenta")
 
     tools = [
-        "Node.js", "Visual Studio Code", "Git", "Python", "XAMPP", "Laragon", "Keluar"
+        "Node.js", "Visual Studio Code", "Git", "Python", "XAMPP", "Laragon",
+        "Postman", "Docker Desktop", "Install Semua", "Keluar"
     ]
 
     for i, tool in enumerate(tools, 1):
