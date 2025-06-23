@@ -31,7 +31,7 @@ def show_ui():
         os_type = "macOS"
     elif os_name == "Windows":
         os_type = "Windows"
-    elif os_name == "Linux":
+    elif os_name == "Ubuntu":
         os_type = "Linux"
 
     console.print(f"\n📦 [bold]Detected OS:[/bold] {os_type}\n", style="bold magenta")
