@@ -32,7 +32,7 @@ jobs:
 
       - name: 🏗️ Build executable with PyInstaller
         run: |
-          pyinstaller --onefile --name initium --add-data "$env:FONT_PATH;pyfiglet/fonts" run.py
+          pyinstaller --onefile --name initium --add-data "$env:FONT_PATH;pyfiglet/fonts" main.py
 
       - name: 🚀 Upload executable as artifact
         uses: actions/upload-artifact@v4
