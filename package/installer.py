@@ -2,7 +2,7 @@ import subprocess
 import os
 import webbrowser
 import platform
-from pacakge.php_installer import download_and_install_php, detect_installed_php_versions, SUPPORTED_PHP_VERSIONS
+from .php_installer import download_and_install_php, detect_installed_php_versions, SUPPORTED_PHP_VERSIONS
 
 
 def handle_choice(choice, os_type):
