@@ -7,6 +7,7 @@ from package.installer import handle_choice
 from ui.interface import show_ui
 from package.checker import is_connected
 
+
 def main():
     if not is_connected():
         print("❌ tidak ada koneksi internet. harap sambungkan dan coba lagi.")
@@ -16,6 +17,7 @@ def main():
         os_type, choice = show_ui()
         handle_choice(choice, os_type)
         input("\n tekan enter untuk kembali ke menu....")
+
 
 if __name__ == "__main__":
     try:

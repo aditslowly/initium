@@ -1,22 +1,26 @@
 from rich.console import Console
 from rich.panel import Panel
 from rich.markup import escape
-from rich.prompt import Prompt 
+from rich.prompt import Prompt
 from pyfiglet import Figlet
 import platform
 import os
 
 console = Console()
 
+
 def show_logo():
-    figlet = Figlet(font='standard')
-    ascii_logo = escape(figlet.renderText('Initium'))
-    console.print(Panel.fit(
-        f"[cyan]{ascii_logo}[/cyan]",
-        title="[bold green]INITIUM CLI INSTALLER",
-        subtitle="github.com/aditslowly/initium",
-        border_style="bright_blue"
-    ))
+    figlet = Figlet(font="standard")
+    ascii_logo = escape(figlet.renderText("Initium"))
+    console.print(
+        Panel.fit(
+            f"[cyan]{ascii_logo}[/cyan]",
+            title="[bold green]INITIUM CLI INSTALLER",
+            subtitle="github.com/aditslowly/initium",
+            border_style="bright_blue",
+        )
+    )
+
 
 def show_ui():
     os.system("cls" if os.name == "nt" else "clear")
@@ -37,13 +41,24 @@ def show_ui():
     console.print(f"\n📦 [bold]Detected OS:[/bold] {os_type}\n", style="bold magenta")
 
     tools = [
-        "Node.js", "Visual Studio Code", "Git", "Python", "XAMPP", "Laragon",
-        "Postman", "Docker Desktop", "Install Semua", "Keluar"
+        "Node.js",
+        "Visual Studio Code",
+        "Git",
+        "Python",
+        "XAMPP",
+        "Laragon",
+        "Postman",
+        "Docker Desktop",
+        "PHP Laragon",
+        "Install Semua",
+        "Keluar",
     ]
 
     for i, tool in enumerate(tools, 1):
         console.print(f"[bold blue]{i}.[/bold blue] {tool}")
-    
-    choice = Prompt.ask("\n[bold yellow]Pilih tools yang ingin diinstall[/bold yellow]", default="0")
+
+    choice = Prompt.ask(
+        "\n[bold yellow]Pilih tools yang ingin diinstall[/bold yellow]", default="0"
+    )
 
     return os_type, choice
