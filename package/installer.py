@@ -2,6 +2,7 @@ import subprocess
 import os
 import webbrowser
 import platform
+from php_installer import download_and_install_php, detect_installed_php_versions, SUPPORTED_PHP_VERSIONS
 
 
 def handle_choice(choice, os_type):
@@ -185,8 +186,6 @@ def install_php_laragon(os_type):
     if os_type != "Windows":
         print("❌ Fitur ini hanya tersedia di Windows.")
         return
-
-    from php_installer import detect_installed_php_versions, download_and_install_php, SUPPORTED_PHP_VERSIONS
 
     print("\n--- PHP Installer Untuk Laragon ---")
     detect_installed_php_versions()
