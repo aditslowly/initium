@@ -28,12 +28,12 @@ def handle_choice(choice, os_type):
             )
             return
 
-        if choice == 10:
+        if choice == 11:
             print("👋🏻 Keluar dari program!")
             return
 
-        if choice == 9:
-            for i in range(1, 9):
+        if choice == 10:
+            for i in range(1, 10):
                 print(f"🔧 Menginstall {tools[i]['name']}...")
                 tools[i]["install"](os_type)
             print("\n✅ Semua tools berhasil diproses")
