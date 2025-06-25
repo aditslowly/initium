@@ -4,6 +4,7 @@ import webbrowser
 import platform
 from .php_installer import (
     download_and_install_php,
+    is_laragon_installed,
     detect_installed_php_versions,
     SUPPORTED_PHP_VERSIONS,
 )
@@ -20,24 +21,23 @@ def handle_choice(choice, os_type):
         7: {"name": "Postman", "install": install_postman},
         8: {"name": "Docker Desktop", "install": install_docker},
         9: {"name": "PHP untuk laragon", "install": install_php_laragon},
-        10: {"name": "Install Semua", "install": None},
-        11: {"name": "Keluar", "install": None},
+        10: {"name": "Composer", "install": install_composer},
+        11: {"name": "Install Semua", "install": None},
+        12: {"name": "Keluar", "install": None},
     }
 
     try:
         choice = int(choice)
 
         if os_type == "Windows" and not is_winget_available():
-            print(
-                "❌ Winget tidak tersedia disistem. Silahkan install di Microsoft Store"
-            )
+            print("❌ Winget tidak tersedia disistem, akan menggunakan fallback URL")
             return
 
-        if choice == 11:
+        if choice == 12:
             print("👋🏻 Keluar dari program!")
             return
 
-        if choice == 10:
+        if choice == 11:
             for i in range(1, 10):
                 print(f"🔧 Menginstall {tools[i]['name']}...")
                 tools[i]["install"](os_type)
@@ -67,6 +67,14 @@ def is_winget_available():
 
 
 def winget_install(package_id, fallback_url=None):
+    if not is_winget_available():
+        if fallback_url:
+            print(f"🔗 Membuka Fallback URL untuk {package_id}")
+            open_url(fallback_url)
+        else:
+            print("❌ Winget dan fallback URL tidak tersedia untuk {package_id}")
+        return
+
     try:
         subprocess.run(
             [
@@ -154,7 +162,6 @@ def install_laragon(os_type):
         return
 
     print("⬇️ Mengunduh dan menginstall Laragon..")
-    import urllib.request
 
     installer_url = (
         "https://github.com/leokhoa/laragon/releases/download/6.0.0/laragon-wamp.exe"
@@ -162,6 +169,8 @@ def install_laragon(os_type):
     installer_name = "laragon-wamp.exe"
 
     try:
+        import urllib.request
+
         urllib.request.urlretrieve(installer_url, installer_name)
         print("✅ Laragon berhasil di unduh")
 
@@ -169,7 +178,7 @@ def install_laragon(os_type):
         os.startfile(installer_name)
 
     except Exception as e:
-        print("❌ Gagal menginstall Laragon: {e}")
+        print(f"❌ Gagal menginstall Laragon: {e}")
 
 
 def install_postman(os_type):
@@ -195,6 +204,9 @@ def install_php_laragon(os_type):
         print("❌ Fitur ini hanya tersedia di Windows.")
         return
 
+    if not is_laragon_installed():
+        print("❌ Laragon tidak ditemukan di sistem, harap install terlebih dahulu.")
+
     print("\n--- PHP Installer Untuk Laragon ---")
     detect_installed_php_versions()
 
@@ -204,3 +216,24 @@ def install_php_laragon(os_type):
 
     version = input("\nMasukkan versi PHP yang ingin di unduh (misal 8.3).").strip()
     download_and_install_php(version)
+
+
+def install_composer(os_type):
+    if os_type != "Windows":
+        print("❌ Composer installer .exe hanya tersedia di Windows")
+        return
+
+    print("⬇️ Mengunduh installer composer.")
+    composer_url = "https://getcomposer.org/Composer-Setup.exe"
+    installer_path = "Composer-Setup.exe"
+
+    try:
+        import urllib.request
+
+        urllib.request.urlretrieve(composer_url, installer_path)
+        print("✅ Composer installer berhasil di unduh")
+
+        print("🚀 Menjalankan installer Composer...")
+        os.startfile(installer_path)
+    except Exception as e:
+        print(f"❌ Gagal menginstall Composer: {e}")

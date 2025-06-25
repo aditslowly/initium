@@ -50,6 +50,7 @@ def show_ui():
         "Postman",
         "Docker Desktop",
         "PHP Laragon",
+        "Composer",
         "Install Semua",
         "Keluar",
     ]
