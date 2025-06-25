@@ -31,11 +31,18 @@
 
 ---
 
-## 📦 Requirement macOS 13 or later
+## Requirement macOS 13 or later 🍎
 Homebrew
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+## Requirement Windows 🪟
+Winget or App Installer
+```bash
+https://github.com/microsoft/winget-cli/releases/download/v1.11.400/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+```
+
 ---
 
 ## 📦 Instalasi
