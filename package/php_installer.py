@@ -7,9 +7,10 @@ import glob
 LARAGON_PHP_DIR = "C:\\laragon\\bin\\php"
 
 SUPPORTED_PHP_VERSIONS = {
-    "8.1": "8.1.27",
-    "8.2": "8.2.18",
-    "8.3": "8.3.5",
+    "8.1": "8.1.32",
+    "8.2": "8.2.28",
+    "8.3": "8.3.22",
+    "8.4": "8.4.8"
 }
 
 def detect_installed_php_versions():

@@ -2,7 +2,11 @@ import subprocess
 import os
 import webbrowser
 import platform
-from .php_installer import download_and_install_php, detect_installed_php_versions, SUPPORTED_PHP_VERSIONS
+from .php_installer import (
+    download_and_install_php,
+    detect_installed_php_versions,
+    SUPPORTED_PHP_VERSIONS,
+)
 
 
 def handle_choice(choice, os_type):
@@ -108,7 +112,7 @@ def install_node(os_type):
     elif os_type == "Linux":
         subprocess.run(["sudo", "apt", "install", "-y", "nodejs"])
     elif os_type == "Windows":
-        winget_install("OpenJS.NodeJS.LTS", "https://nodejs.org/en/download/")
+        winget_install("OpenJS.NodeJS", "https://nodejs.org/en/download/")
 
 
 def install_vscode(os_type):
@@ -159,10 +163,13 @@ def install_laragon(os_type):
 
     try:
         urllib.request.urlretrieve(installer_url, installer_name)
-        subprocess.run([installer_name], shell=True)
-        print("✅ Laragon telah berhasil di-install.")
+        print("✅ Laragon berhasil di unduh")
+
+        print("🚀 Membuka installer Laragon...")
+        os.startfile(installer_name)
+
     except Exception as e:
-        print(f"❌ Gagal menginstall Laragon: {e}")
+        print("❌ Gagal menginstall Laragon: {e}")
 
 
 def install_postman(os_type):
@@ -182,6 +189,7 @@ def install_docker(os_type):
     elif os_type == "Linux":
         subprocess.run(["sudo", "apt", "install", "-y", "docker.io"])
 
+
 def install_php_laragon(os_type):
     if os_type != "Windows":
         print("❌ Fitur ini hanya tersedia di Windows.")
@@ -193,6 +201,6 @@ def install_php_laragon(os_type):
     print("\nVersi yang tersedia untuk di unduh: ")
     for key, val in SUPPORTED_PHP_VERSIONS.items():
         print(f"{key} -> PHP {val}")
-    
-    version = input("\nMasukkan versi PHP yang ingin di unduh (misal 8.3.5).").strip()
+
+    version = input("\nMasukkan versi PHP yang ingin di unduh (misal 8.3).").strip()
     download_and_install_php(version)
