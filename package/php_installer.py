@@ -29,8 +29,10 @@ def download_and_install_php(major_version: str):
     if not full_version:
         print("⚠️ Versi tidak tersedia")
         return
+
+    vs_version = "vs17" if full_version.startswith("8.4") else "vs16"
     
-    url = f"https://windows.php.net/downloads/releases/php-{full_version}-Win32-vs16-x64.zip"
+    url = f"https://windows.php.net/downloads/releases/php-{full_version}-Win32-{vs_version}-x64.zip"
     filename = f"php-{full_version}.zip"
     install_dir = os.path.join("C:\\laragon\\bin\\php", f"php-{full_version}")
 
