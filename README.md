@@ -1,6 +1,6 @@
 # 💠 INITIUM
 
-![Python](https://img.shields.io/badge/python-3.10+-blue?style=flat&logo=python)
+![Python](https://img.shields.io/badge/python-3.13+-blue?style=flat&logo=python)
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-green?style=flat&logo=windows)
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 
