@@ -1,11 +1,10 @@
+from package.checker import is_connected
+from ui.interface import show_ui
+from package.installer import handle_choice
 import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
-from package.installer import handle_choice
-from ui.interface import show_ui
-from package.checker import is_connected
 
 
 def main():
