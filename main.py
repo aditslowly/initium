@@ -1,11 +1,21 @@
+<<<<<<< HEAD
 from package.checker import is_connected
 from ui.interface import show_ui
 from package.installer import handle_choice
+=======
+>>>>>>> 802128f (back to cli basic)
 import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+<<<<<<< HEAD
+=======
+from package.installer import handle_choice
+from ui.interface import show_ui
+from package.checker import is_connected
+
+>>>>>>> 802128f (back to cli basic)
 
 def main():
     if not is_connected():
